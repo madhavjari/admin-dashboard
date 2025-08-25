@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .container{
@@ -111,36 +112,62 @@ ul li{
     grid-template-columns: 2.5fr 1fr;
     gap: 20px;
     padding-bottom: 100px;
+    padding-right: 30px;
 }
 
-.content > .project{
-    grid-row: 1/3;
-}
-
-.project{
+.content-child{
     padding-left: 15px;
     padding-top: 30px;
+}
+
+.content-child:first-child{
+    grid-row: 1/3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr repeat(3,6fr);
     gap: 20px;
 }
 
-.project > .project-title{
+.content-title{
+    font-weight: bold;
+}
+
+.content-child:first-child > .content-title{
     grid-column: 1/3;
 }
 
-.project > .card{
+.content-child:first-child > .card{
     padding-left: 25px;
     padding-top: 25px;
     background-color: white;
     border-radius: 8px;
     border-left: rgb(218, 153, 13) solid;
     border-width: 8px;
-    /* box-shadow: inset 5px 0 0 0 rgb(218, 153, 13); */
 }
 
-.project>.card>.header{
+.description{
+    color: rgb(105, 105, 105);
+}
+
+.header{
     padding-bottom: 2px;
     font-weight: bolder;
+}
+
+.content-child:nth-child(2){
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.content-child:nth-child(2) > .card-container{
+    padding:40px;
+    background-color: white;
+    display: grid;
+    gap: 30px;
+    border-radius: 8px;
+}
+
+.content-child:nth-child(2) > .card-container > .card:nth-child(-n +2) {
+    padding-bottom: 20px;
+    border-bottom: 1px rgb(194, 188, 188) solid;
 }
