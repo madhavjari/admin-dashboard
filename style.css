@@ -7,11 +7,13 @@
 .container{
     display: grid;
     grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 5fr;
+    min-height: 100vh;
 }
 
 .sidebar{
-    grid-row:1/6;
-    background-color: #3bb3c9;
+    grid-row:1/3;
+    background-color: #05A6F0;
 }
 
 .dash-container{
@@ -104,12 +106,41 @@ ul li{
 .content{
     grid-column: 2/3;
     grid-row: 2/6;
-    background-color: lightblue;
+    background-color: rgb(233, 236, 243);
     display: grid;
     grid-template-columns: 2.5fr 1fr;
+    gap: 20px;
+    padding-bottom: 100px;
 }
 
 .content > .project{
     grid-row: 1/3;
-    border: black solid;
+}
+
+.project{
+    padding-left: 15px;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr repeat(3,6fr);
+    gap: 20px;
+}
+
+.project > .project-title{
+    grid-column: 1/3;
+}
+
+.project > .card{
+    padding-left: 25px;
+    padding-top: 25px;
+    background-color: white;
+    border-radius: 8px;
+    border-left: rgb(218, 153, 13) solid;
+    border-width: 8px;
+    /* box-shadow: inset 5px 0 0 0 rgb(218, 153, 13); */
+}
+
+.project>.card>.header{
+    padding-bottom: 2px;
+    font-weight: bolder;
 }
