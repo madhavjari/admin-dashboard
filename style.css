@@ -7,16 +7,8 @@
 
 :root{
     --blue: #05A6F0;
-}
-
-.icon, .white-icon{
-    height: 25px;
-    width: 25px;
-}
-
-.image{
-    height: 40px;
-    width: auto;
+    --grey: #E9ECF3;
+    --yellow: #DA990D;
 }
 
 /* -----------------------main container----------------- */
@@ -24,7 +16,6 @@
 .container{
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 5fr;
     min-height: 100vh;
 }
 
@@ -37,13 +28,12 @@
 
 .dash-container{
     display: grid;
-    grid-template-rows: 1fr 2.8fr 4fr;
 }
 
 .dash-logo{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     padding: 2rem;
     filter: invert(100%);
 }
@@ -51,18 +41,21 @@
 .user-profile, .user-setting{
     filter: invert(100%);
     padding-left: 3rem;
+}
+
+.user-profile{
     margin-bottom: 4rem;
 }
 
 .user-profile ul, .user-setting ul{
     display: grid;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
 .user-profile ul li, .user-setting ul li{
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 2rem;
 }
 
 ul li{
@@ -75,42 +68,39 @@ ul li{
     background-color: white;
     display: grid;
     grid-template-columns: minmax(500px,2fr) minmax(250px,1fr);
+    padding:1rem;
+    gap: 2rem;
 }
 
 .header-right-user, .header-buttons{
-    justify-content:center;
     display:flex;
-    gap: 2rem;
+    justify-content:center;
     align-items: center;
-}
-
-.header-left, .search-bar{
-    display:grid;
-    align-items:center;
-    justify-content: left;
-    padding-left: 3rem;
-    grid-template-columns: 100px minmax(100px,1fr);
+    gap: 2rem; 
 }
 
 .search-bar{
+    display:grid;
     grid-template-columns: 50px minmax(100px,1fr);
 }
 
-.header-left{
-    padding-top: 1rem;
-    grid-template-rows: repeat(2,2rem);
+.search-bar,.header-left{
+    align-items:center;
+    justify-content: left;
+    padding-left: 3rem;
 }
 
-.header-left > .image{
-    grid-row:1/3;
-    height: 4rem;
+.header-left{
+    display: flex;
+    gap:1rem;
 }
+
 
 .bar{
     padding-left: 2rem;
     height: 2rem;
     border-radius: 2rem; 
-    background-color:rgb(225, 229, 236);   
+    background-color: var(--grey);   
     border: none;
 }
 
@@ -127,19 +117,17 @@ ul li{
 /* ------------------------Articles---------------------- */
 
 .content{
-    grid-column: 2/3;
-    grid-row: 2/6;
-    background-color: rgb(233, 236, 243);
+    background-color: var(--grey);
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 5fr 2fr;
     gap: 20px;
-    padding-bottom: 100px;
-    padding-right: 30px;
+    padding-bottom: 4rem;
+    padding-right: 2rem;
 }
 
 .content-child{
-    padding-left: 15px;
-    padding-top: 30px;
+    padding-left: 2rem;
+    padding-top: 3rem;
 }
 
 /* ------------------------Main Article Cards---------------------- */
@@ -147,26 +135,31 @@ ul li{
 .content-child:first-child{
     grid-row: 1/3;
     display: grid;
-    grid-template-rows: 30px 1fr;
-}
-
-.content-title{
-    font-weight: bold;
+    grid-template-rows: 2rem 1fr;
 }
 
 .content-child:first-child > .card-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     gap: 30px;
 }
 
 .content-child:first-child > .card-container> .card{
-    padding-left: 25px;
-    padding-top: 25px;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 1rem;
     background-color: white;
     border-radius: 8px;
-    border-left: rgb(218, 153, 13) solid;
+    border-left: var(--yellow) solid;
     border-width: 8px;
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+}
+
+.notify{
+    display: flex;
+    justify-content: end;
+    gap: 1.5rem;
 }
 
 .description{
@@ -209,6 +202,25 @@ h4{
     grid-template-columns: 1fr 2fr;
     background-color: white;
     border-radius: 8px;
-    padding:40px;
+    padding:2.5rem;
     gap: 30px;
+}
+
+/*----------------------- Images and Icons --------------------*/
+
+.icon, .white-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.image{
+    height: 3rem;
+}
+
+.header-left > .image{
+    height: 3rem;
+}
+
+.notify > .icon:last-child{
+    transform: rotate(-90deg);
 }
