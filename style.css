@@ -5,6 +5,10 @@
   font-family: "Roboto", Arial, sans-serif;
 }
 
+:root{
+    --blue: #05A6F0;
+}
+
 .icon, .white-icon{
     height: 25px;
     width: 25px;
@@ -15,6 +19,8 @@
     width: auto;
 }
 
+/* -----------------------main container----------------- */
+
 .container{
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -22,9 +28,11 @@
     min-height: 100vh;
 }
 
+/* ------------------------Sidebar---------------------- */
+
 .sidebar{
     grid-row:1/3;
-    background-color: #05A6F0;
+    background-color: var(--blue);
 }
 
 .dash-container{
@@ -61,55 +69,53 @@ ul li{
     list-style-type: none;
 }
 
+/* ------------------------Header---------------------- */
+
 .header{
     background-color: white;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(500px,2fr) minmax(250px,1fr);
 }
 
-.header-right-user{
+.header-right-user, .header-buttons{
     justify-content:center;
     display:flex;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
+}
+
+.header-left, .search-bar{
+    display:grid;
+    align-items:center;
+    justify-content: left;
+    padding-left: 3rem;
+    grid-template-columns: 100px minmax(100px,1fr);
+}
+
+.search-bar{
+    grid-template-columns: 50px minmax(100px,1fr);
 }
 
 .header-left{
-    display:grid;
-    grid-template-columns: 1fr 4fr;
-    align-items: center;
-    padding: 20px;
+    padding-top: 1rem;
+    grid-template-rows: repeat(2,2rem);
 }
 
 .header-left > .image{
     grid-row:1/3;
-    height: 5rem;
+    height: 4rem;
 }
 
-.header-left > div:nth-child(2){
-    font-size: small;
-}
-
-.header-left > div:nth-child(3){
-    font-size: larger;
-    font-weight: bolder;
-}
-
-.header > input{
-    padding: 1rem;
-    width: 20rem;
-    height: 0.4rem;
-    border-radius: 10px;
-}
-
-.header-buttons{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.bar{
+    padding-left: 2rem;
+    height: 2rem;
+    border-radius: 2rem; 
+    background-color:rgb(225, 229, 236);   
+    border: none;
 }
 
 .header-buttons > button{
-    background-color: #3bb3c9;
+    background-color: var(--blue);
     border: none;
     border-radius: 20px;
     color:white;
@@ -117,6 +123,8 @@ ul li{
     width: 5rem;
     height: 2rem;
 }
+
+/* ------------------------Articles---------------------- */
 
 .content{
     grid-column: 2/3;
@@ -134,23 +142,25 @@ ul li{
     padding-top: 30px;
 }
 
+/* ------------------------Main Article Cards---------------------- */
+
 .content-child:first-child{
     grid-row: 1/3;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr repeat(3,6fr);
-    gap: 20px;
+    grid-template-rows: 30px 1fr;
 }
 
 .content-title{
     font-weight: bold;
 }
 
-h3{
-    grid-column: 1/3;
+.content-child:first-child > .card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    gap: 30px;
 }
 
-.content-child:first-child > .card{
+.content-child:first-child > .card-container> .card{
     padding-left: 25px;
     padding-top: 25px;
     background-color: white;
@@ -167,9 +177,11 @@ h4{
     padding-bottom: 4px;
 }
 
+/* ------------------------Announcements---------------------- */
+
 .content-child:nth-child(2){
     display: grid;
-    grid-template-rows: 1fr 9fr;
+    grid-template-rows: 30px 1fr;
 }
 
 .content-child:nth-child(2) > .card-container{
@@ -185,9 +197,11 @@ h4{
     border-bottom: 1px rgb(194, 188, 188) solid;
 }
 
+/* ------------------------Trending---------------------- */
+
 .content-child:last-child{
     display: grid;
-    grid-template-rows: 1fr 9fr;
+    grid-template-rows: 30px 1fr;
 }
 
 .content-child:last-child > .card-container{
